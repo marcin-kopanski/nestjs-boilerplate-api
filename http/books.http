@@ -1,0 +1,42 @@
+###BooksController
+
+### create(@Body() createBookDto: CreateBookDto)
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+  "title": "Test 1", "author": "Autor Autorski", "releaseDate": "{{$datetime iso8601}}"
+}
+
+### findAll()
+GET http://localhost:3000/books
+
+### findById(@Param("id") id: string)
+GET http://localhost:3000/books/3
+
+### update(@Param("id") id: string, @Body() updateBookDto: UpdateBookDto)
+PATCH http://localhost:3000/books/1
+Content-Type: application/json
+
+{
+  "releaseDate": "{{$datetime iso8601}}"
+}
+
+###
+PATCH http://localhost:3000/books/2
+Content-Type: application/json
+
+{
+  "title": "Test 1"
+}
+
+###
+PATCH http://localhost:3000/books/2
+Content-Type: application/json
+
+{
+  "author": "Autorski Autor"
+}
+
+### remove(@Param("id") id: string)
+DELETE http://localhost:3000/books/1
