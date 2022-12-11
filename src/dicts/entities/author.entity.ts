@@ -1,5 +1,3 @@
-import { Author } from "src/dicts/entities/author.entity";
-import { Genre } from "src/dicts/entities/genre.entity";
 import {
   AfterInsert,
   AfterRemove,
@@ -10,27 +8,30 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import { Country } from "./country.entity";
 
 @Entity()
-export class Book {
+export class Author {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  title: string;
+  firstName: string;
 
-  @OneToOne(() => Author)
-  @JoinColumn()
-  author: Author;
+  @Column()
+  lastName: string;
 
   @Column({ type: "date" })
-  releaseDate: Date;
+  dateOfBirth: Date;
 
-  @OneToOne(() => Genre)
+  @Column({ type: "date" })
+  dateOfDeath: Date;
+
+  @OneToOne(() => Country)
   @JoinColumn()
-  genre: Genre;
+  country: Country;
 
-  public toString = (): string => `${this.id}) ${this.author} - ${this.title}`;
+  public toString = (): string => `${this.id}) ${this.firstName} ${this.lastName}`;
 
   @AfterInsert()
   logInsert() {
