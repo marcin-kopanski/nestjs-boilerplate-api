@@ -24,7 +24,7 @@ export class Author {
   @Column({ type: "date" })
   dateOfBirth: Date;
 
-  @Column({ type: "date" })
+  @Column({ type: "date", nullable: true })
   dateOfDeath: Date;
 
   @OneToOne(() => Country)

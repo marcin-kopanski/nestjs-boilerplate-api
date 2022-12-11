@@ -1,0 +1,26 @@
+###BooksController
+
+### createAuthor(createAuthorDto: CreateAuthorDto)
+POST http://localhost:3000/dicts/authors
+Content-Type: application/json
+
+{
+  "firstName": "Stieg", "lastName": "Larsson", "dateOfBirth": "1954-08-15", "dateOfDeath": "2004-11-09", "countryId": 1
+}
+
+### findAllAuthors()
+GET http://localhost:3000/dicts/authors
+
+### findAuthorById(id: number)
+GET http://localhost:3000/dicts/authors/1
+
+### updateAuthor(id: number, updateAuthorDto: UpdateAuthorDto)
+PATCH http://localhost:3000/dicts/authors/1
+Content-Type: application/json
+
+{
+  "dateOfDeath": null
+}
+
+### removeAuthor(id: number)
+DELETE http://localhost:3000/dicts/authors/4

@@ -1,4 +1,4 @@
-import { IsDateString, IsNumber, IsString } from "class-validator";
+import { IsDateString, IsNumber, IsString, IsOptional } from "class-validator";
 
 export class CreateAuthorDto {
   @IsString()
@@ -11,8 +11,9 @@ export class CreateAuthorDto {
   readonly dateOfBirth: Date;
 
   @IsDateString()
+  @IsOptional()
   readonly dateOfDeath: Date;
 
   @IsNumber()
-  readonly country: number;
+  readonly countryId: number;
 }

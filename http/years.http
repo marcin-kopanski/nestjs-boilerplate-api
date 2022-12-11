@@ -1,0 +1,26 @@
+###DictsController
+
+### createYear(createYearDto: CreateYearDto)
+POST http://localhost:3000/dicts/years
+Content-Type: application/json
+
+{
+  "year": 2010
+}
+
+### findAllYears()
+GET http://localhost:3000/dicts/years
+
+### findYearById(id: number)
+GET http://localhost:3000/dicts/years/5
+
+### updateYear(id: number, updateYearDto: UpdateYearDto)
+PATCH http://localhost:3000/dicts/years/10
+Content-Type: application/json
+
+{
+  "year": 2010
+}
+
+### removeYear(id: number)
+DELETE http://localhost:3000/dicts/years/6

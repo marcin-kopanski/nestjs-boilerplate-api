@@ -1,0 +1,26 @@
+###DictsController
+
+### createCountry(@Body() createCountryDto: CreateCountryDto)
+POST http://localhost:3000/dicts/countries
+Content-Type: application/json
+
+{
+  "name": "Szwecja"
+}
+
+### findAll()
+GET http://localhost:3000/dicts/countries
+
+### findById(@Param("id") id: string)
+GET http://localhost:3000/dicts/countries/5
+
+### update(@Param("id") id: string, @Body() updateBookDto: UpdateBookDto)
+PATCH http://localhost:3000/dicts/countries/5
+Content-Type: application/json
+
+{
+  "name": "Test"
+}
+
+### remove(@Param("id") id: string)
+DELETE http://localhost:3000/dicts/countries/6

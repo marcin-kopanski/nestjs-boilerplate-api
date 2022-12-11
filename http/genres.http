@@ -1,0 +1,26 @@
+###DictsController
+
+### createGenre(createGenreDto: CreateGenreDto)
+POST http://localhost:3000/dicts/genres
+Content-Type: application/json
+
+{
+  "name": "Thriller"
+}
+
+### findAllGenres()
+GET http://localhost:3000/dicts/genres
+
+### findGenreById(id: number)
+GET http://localhost:3000/dicts/genres/5
+
+### updateGenre(id: number, updateGenreDto: UpdateGenreDto)
+PATCH http://localhost:3000/dicts/genres/5
+Content-Type: application/json
+
+{
+  "name": "Fantasy"
+}
+
+### removeGenre(id: number)
+DELETE http://localhost:3000/dicts/genres/6
