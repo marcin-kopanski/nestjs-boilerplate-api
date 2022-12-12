@@ -47,7 +47,9 @@ export class DictsService {
   }
 
   findAllAuthors() {
-    return this.authorRepo.find({ relations: ["country"], loadRelationIds: true });
+    return this.authorRepo.find({
+      relations: { country: true },
+    });
   }
 
   findAllCountries() {
