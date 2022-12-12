@@ -15,11 +15,11 @@ GET http://localhost:3000/dicts/countries
 GET http://localhost:3000/dicts/countries/5
 
 ### update(@Param("id") id: string, @Body() updateBookDto: UpdateBookDto)
-PATCH http://localhost:3000/dicts/countries/5
+PATCH http://localhost:3000/dicts/countries/6
 Content-Type: application/json
 
 {
-  "name": "Test"
+  "name": "Test zmiana"
 }
 
 ### remove(@Param("id") id: string)

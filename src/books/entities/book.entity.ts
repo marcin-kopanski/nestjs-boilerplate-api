@@ -6,8 +6,7 @@ import {
   AfterUpdate,
   Column,
   Entity,
-  JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 
@@ -19,15 +18,13 @@ export class Book {
   @Column()
   title: string;
 
-  @OneToOne(() => Author)
-  @JoinColumn()
+  @ManyToOne(() => Author)
   author: Author;
 
   @Column({ type: "date" })
   releaseDate: Date;
 
-  @OneToOne(() => Genre)
-  @JoinColumn()
+  @ManyToOne(() => Genre)
   genre: Genre;
 
   public toString = (): string => `${this.id}) ${this.author} - ${this.title}`;

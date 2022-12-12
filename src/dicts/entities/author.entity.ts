@@ -4,8 +4,7 @@ import {
   AfterUpdate,
   Column,
   Entity,
-  JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Country } from "./country.entity";
@@ -27,8 +26,7 @@ export class Author {
   @Column({ type: "date", nullable: true })
   dateOfDeath: Date;
 
-  @OneToOne(() => Country)
-  @JoinColumn()
+  @ManyToOne(() => Country)
   country: Country;
 
   public toString = (): string => `${this.id}) ${this.firstName} ${this.lastName}`;
