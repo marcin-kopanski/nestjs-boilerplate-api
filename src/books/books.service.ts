@@ -17,12 +17,14 @@ export class BooksService {
 
   findAll() {
     console.log("This action returns all books");
-    return this.repo.find();
+    return this.repo.find({
+      relations: { author: true, genre: true },
+    });
   }
 
   findById(id: number) {
     console.log(`This action returns a #${id} book`);
-    const book = this.repo.findOneBy({ id });
+    const book = this.repo.findOne({ relations: { author: true, genre: true }, where: { id } });
     if (!book) {
       throw new NotFoundException("Book not found!");
     }
