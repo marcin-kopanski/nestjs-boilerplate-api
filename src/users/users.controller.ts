@@ -1,4 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
+import { AuthenticateUserDto } from "./dto/authenticate-user.dto";
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UpdateUserDto } from "./dto/update-user.dto";
 import { UsersService } from "./users.service";
@@ -20,6 +21,11 @@ export class UsersController {
   @Get(":id")
   findById(@Param("id") id: string) {
     return this.usersService.findById(+id);
+  }
+
+  @Post("auth")
+  authenticate(@Body() authenticateUserDto: AuthenticateUserDto) {
+    return this.usersService.authenticate(authenticateUserDto);
   }
 
   @Patch(":id")

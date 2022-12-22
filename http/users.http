@@ -1,0 +1,42 @@
+###UsersController
+
+### create(@Body() createUserDto: CreateUserDto)
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "name": "Test 1", "email": "test@test.pl", "password": "123456"
+}
+
+### findAll()
+GET http://localhost:3000/users
+
+### findById(@Param("id") id: string)
+GET http://localhost:3000/users/1
+
+### findById(@Param("id") id: string)
+POST http://localhost:3000/users/auth
+Content-Type: application/json
+
+{
+  "email": "test@test.pl", "password": "123456"
+}
+
+### update(@Param("id") id: string, @Body() updateuserDto: UpdateuserDto)
+PATCH http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "name": "Test 1 zmieniony"
+}
+
+###
+PATCH http://localhost:3000/users/1
+Content-Type: application/json
+
+{
+  "name": "Test 1"
+}
+
+### remove(@Param("id") id: string)
+DELETE http://localhost:3000/users/2

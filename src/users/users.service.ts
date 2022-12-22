@@ -27,6 +27,15 @@ export class UsersService {
     return user;
   }
 
+  authenticate({ email, password }) {
+    const user = this.repo.findOneBy({ email, password });
+    if (!user) {
+      throw new NotFoundException("Invalid login and password!");
+    }
+
+    return user;
+  }
+
   async update(id: number, updateUserDto: UpdateUserDto) {
     const user = await this.findById(id);
     Object.assign(user, updateUserDto);
