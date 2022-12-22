@@ -9,15 +9,18 @@ import { Author } from "./dicts/entities/author.entity";
 import { Country } from "./dicts/entities/country.entity";
 import { Genre } from "./dicts/entities/genre.entity";
 import { Year } from "./dicts/entities/year.entity";
+import { User } from "./users/entities/user.entity";
+import { UsersModule } from "./users/users.module";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: "sqlite",
       database: "db.sqlite",
-      entities: [Author, Book, Country, Genre, Year],
+      entities: [Author, Book, Country, Genre, Year, User],
       synchronize: true,
     }),
+    UsersModule,
     BooksModule,
     DictsModule,
   ],
