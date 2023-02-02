@@ -1,3 +1,4 @@
+import { Book } from "src/books/entities/book.entity";
 import {
   AfterInsert,
   AfterRemove,
@@ -5,6 +6,7 @@ import {
   Column,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from "typeorm";
 import { Country } from "./country.entity";
@@ -28,6 +30,9 @@ export class Author {
 
   @ManyToOne(() => Country)
   country: Country;
+
+  @OneToMany(() => Book, (book) => book.author)
+  books: Book[];
 
   public toString = (): string => `${this.id}) ${this.firstName} ${this.lastName}`;
 

@@ -65,7 +65,10 @@ export class DictsService {
   }
 
   async findAuthorById(id: number) {
-    const author = await this.authorRepo.findOne({ relations: { country: true }, where: { id } });
+    const author = await this.authorRepo.findOne({
+      relations: { country: true, books: true },
+      where: { id },
+    });
     if (!author) {
       throw new NotFoundException("Author not found!");
     }
